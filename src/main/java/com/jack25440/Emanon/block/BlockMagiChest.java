@@ -20,9 +20,9 @@ public class BlockMagiChest extends BlockEmanon {
 
     private final Random random = new Random();
     @SideOnly(Side.CLIENT)
-    private IIcon iconFront;
+    private IIcon iconSide;
     @SideOnly(Side.CLIENT)
-    private IIcon iconBlock;
+    private IIcon iconTop;
 
     public BlockMagiChest() {
         super();
@@ -39,13 +39,13 @@ public class BlockMagiChest extends BlockEmanon {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int intSide, int intMeta)
     {
-        return intSide == 2 ? this.iconFront : (intSide != intMeta ? this.iconBlock : this.iconBlock);
+        return intSide == 2 ? this.iconSide : (intSide != intMeta ? this.iconSide : this.iconSide);
     }
 
     @SideOnly(Side.CLIENT)
     public void registericonBlocks(IIconRegister iconRegister)
     {
-        this.iconBlock = iconRegister.registerIcon(Names.Forms.magiChest);
-        this.iconFront = iconRegister.registerIcon(Names.Forms.magiChest + Names.Directions.FRONT);
+        this.iconSide = iconRegister.registerIcon("magiChestSide");
+        this.iconTop = iconRegister.registerIcon("magiChestTop");
     }
 }
